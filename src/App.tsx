@@ -6,13 +6,13 @@ import Category from "./routes/Category"
 
 function App() {
   return (
-    <div className="font-mouse-memoirs">
+    <main className="font-mouse-memoirs min-h-dvh flex flex-col justify-center mx-8">
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/how-to-play" element={<HowToPlay />} />
         <Route path="/category" element={<Category />} />
       </Routes>
-    </div>
+    </main>
   )
 }
 
