@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router"
 import "./App.css"
-import MainMenu from "./routes/MainMenu"
-import HowToPlay from "./routes/HowToPlay"
-import Category from "./routes/Category"
+import MainMenu from "./routes/MainMenu/MainMenu"
+import HowToPlay from "./routes/HowToPlay/HowToPlay"
+import Category from "./routes/Category/Category"
 
 function App() {
   return (

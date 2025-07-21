@@ -1,0 +1,33 @@
+.titleWrapper {
+  display: grid;
+  grid-template-areas: "overlay";
+}
+
+.shadow {
+  -webkit-text-stroke: 10px #243041;
+  font-size: 48px;
+  grid-area: overlay;
+  @media (min-width: 768px) {
+    font-size: 104px;
+    -webkit-text-stroke: 20px #243041;
+  }
+  @media (min-width: 1280px) {
+    font-size: 136px;
+  }
+}
+
+.title {
+  background: linear-gradient(#67b6ff, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  font-size: 48px;
+  grid-area: overlay;
+  @media (min-width: 768px) {
+    font-size: 104px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 136px;
+  }
+}

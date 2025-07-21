@@ -1,0 +1,38 @@
+.a {
+  grid-area: a;
+  @media (min-width: 768px) {
+    align-self: center;
+  }
+}
+
+.b {
+  grid-area: b;
+}
+
+.c {
+  grid-area: c;
+}
+
+.stepWrapper {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c c";
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      "a b"
+      "a c";
+
+    gap: 40px;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-areas:
+      "a a"
+      "b b"
+      "c c";
+  }
+}
