@@ -1,7 +1,7 @@
-import NavigationButton from "../../components/NavigationButton/NavigationButton"
-import menu from "../../assets/images/icon-menu.svg"
-import slider from "../../assets/images/staticSlider.svg"
-import heart from "../../assets/images/icon-heart.svg"
+import NavigationButton from "../../../components/NavigationButton/NavigationButton"
+import menu from "../../../assets/images/icon-menu.svg"
+import slider from "../../../assets/images/staticSlider.svg"
+import heart from "../../../assets/images/icon-heart.svg"
 
 interface GameHeaderProps {
   category: string | undefined

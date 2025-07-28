@@ -1,10 +1,9 @@
 import { useParams } from "react-router"
 import data from "../../../data.json"
 import { useEffect, useState } from "react"
-
-import GameHeader from "./GameHeader"
-import GameTargetWord from "./GameTargetWord"
-import GameAlphabetGrid from "./GameAlphabetGrid"
+import GameHeader from "./GameHeader/GameHeader"
+import GameTargetWord from "./GameTargetWord/GameTargetWord"
+import GameAlphabetGrid from "./GameAlphabetGrid/GameAlphabetGrid"
 
 type CategoryKey = "Movies" | "TV Shows" | "Countries" | "Capital Cities" | "Animals" | "Sports"
 
