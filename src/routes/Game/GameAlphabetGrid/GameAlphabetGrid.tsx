@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 
 interface GameAlphabetGridProps {
+  showModal: boolean
   randomWord: string
   guessedLetters: string[]
   setGuessedLetters: React.Dispatch<React.SetStateAction<string[]>>
@@ -8,18 +9,26 @@ interface GameAlphabetGridProps {
   setIncorrectGuesses: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-export default function GameAlphabetGrid({ randomWord, guessedLetters, setGuessedLetters, setCorrectGuesses, setIncorrectGuesses }: GameAlphabetGridProps) {
+export default function GameAlphabetGrid({
+  showModal,
+  randomWord,
+  guessedLetters,
+  setGuessedLetters,
+  setCorrectGuesses,
+  setIncorrectGuesses,
+}: GameAlphabetGridProps) {
   const alphabets = "abcdefghijklmnopqrstuvwxyz".split("")
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (showModal) return
       const key = e.key.toLowerCase()
       if (key === " ") e.preventDefault()
       if (alphabets.includes(key)) handleGuess(key)
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [guessedLetters, randomWord])
+  }, [guessedLetters, randomWord, showModal])
 
   const handleGuess = (letter: string) => {
     if (guessedLetters.includes(letter)) return

@@ -10,6 +10,7 @@ describe("GameAlphabetGrid", () => {
 
     render(
       <GameAlphabetGrid
+        showModal={false}
         randomWord="panda"
         guessedLetters={[]}
         setGuessedLetters={setGuessedLetters}
@@ -33,6 +34,7 @@ describe("GameAlphabetGrid", () => {
 
     render(
       <GameAlphabetGrid
+        showModal={false}
         randomWord="panda"
         guessedLetters={[]}
         setGuessedLetters={setGuessedLetters}

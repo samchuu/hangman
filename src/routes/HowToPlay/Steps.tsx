@@ -22,9 +22,9 @@ const steps = [
 
 export default function Steps() {
   return (
-    <article className="flex flex-col gap-6 xl:flex-row xl:min-h-[550px]">
+    <article className="flex flex-col gap-6 xl:flex-row xl:min-h-[550px] mt-20 md:mt-24 xl:mt-16">
       {steps.map((step) => (
-        <Step step={step} />
+        <Step step={step} key={step.step} />
       ))}
     </article>
   )
