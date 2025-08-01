@@ -6,11 +6,11 @@
 }
 
 body {
+  background-color: #210e4e;
   position: relative;
   background-image: url("../src/assets/images/background-mobile.svg");
   background-size: cover;
   isolation: isolate;
-  overflow-y: auto;
 
   @media (min-width: 768px) {
     background-image: url("../src/assets/images/background-tablet.svg");

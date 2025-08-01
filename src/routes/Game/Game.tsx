@@ -6,6 +6,7 @@ import GameTargetWord from "./GameTargetWord/GameTargetWord"
 import GameAlphabetGrid from "./GameAlphabetGrid/GameAlphabetGrid"
 import Modal from "../../components/Modal/Modal"
 import Overlay from "../../components/Overlay/Overlay"
+import NotFound from "../../components/NotFound/NotFound"
 
 type CategoryKey = "Movies" | "TV Shows" | "Countries" | "Capital Cities" | "Animals" | "Sports"
 
@@ -29,6 +30,8 @@ export default function Game() {
   const categoryKey = category && slugToCategoryKey[category]
   const isWordGuessed = [...new Set(randomWord.replace(/[^a-z]/gi, ""))].every((letter) => correctGuesses.includes(letter))
 
+  if (!categoryKey) return <NotFound />
+
   useEffect(() => {
     if (!randomWord) return
     if (isWordGuessed || incorrectGuesses.length === 8) {
@@ -44,18 +47,6 @@ export default function Game() {
     }
   }, [categoryKey])
 
-  if (!categoryKey) {
-    return (
-      <section className="flex flex-col gap-4 items-center justify-center min-h-dvh text-white text-center mx-auto max-w-screen-md">
-        <h1 className="text-2xl xl:text-4xl font-bold">Oops!</h1>
-        <p>Invalid or missing category. Please choose a valid category from the homepage.</p>
-        <a href="/" className="underline text-xl">
-          Back to home
-        </a>
-      </section>
-    )
-  }
-
   const handlePlayAgain = () => {
     if (categoryKey) {
       const items = data.categories[categoryKey]
@@ -69,7 +60,7 @@ export default function Game() {
   }
 
   return (
-    <section className="mx-auto max-w-screen-md xl:max-w-screen-xl mt-10 md:mt-14 pb-20 relative">
+    <section className="mx-auto xl:max-w-screen-xl mt-10 md:mt-14 pb-20 relative">
       <GameHeader category={categoryKey} incorrectGuesses={incorrectGuesses} setShowModal={setShowModal} />
       <GameTargetWord randomWord={randomWord} correctGuesses={correctGuesses} />
       <GameAlphabetGrid

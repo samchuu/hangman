@@ -12,7 +12,7 @@ export default function GameTargetWord({ randomWord, correctGuesses }: GameTarge
     <div className="mt-20 md:mt-28 xl:mt-20 mx-auto">
       <div className={`flex flex-wrap justify-center gap-x-4 xl:gap-x-8 gap-y-6 items-center`}>
         {filteredWords.map((letters, wordIndex) => (
-          <div key={wordIndex} className="flex">
+          <div key={wordIndex} className="flex flex-wrap">
             {letters.map((letter, letterIndex) => (
               <p
                 data-testid="letter-block"
