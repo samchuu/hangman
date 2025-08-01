@@ -7,7 +7,7 @@ export default function Category() {
   const categories = Object.keys(data.categories)
 
   return (
-    <section className="md:mx-auto md:max-w-[680px] xl:max-w-[1212px] mt-10 xl:mt-20">
+    <section className="md:mx-auto md:max-w-[680px] xl:max-w-[1212px] mt-10 xl:mt-20 pb-16 xl:pb-40">
       <PageHeader title="Pick a category" />
       <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 xl:gap-8 mt-16 xl:mt-40">
         {categories.map((category) => (
