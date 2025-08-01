@@ -7,30 +7,34 @@ import GameAlphabetGrid from "./GameAlphabetGrid/GameAlphabetGrid"
 import Modal from "../../components/Modal/Modal"
 import Overlay from "../../components/Overlay/Overlay"
 import NotFound from "../../components/NotFound/NotFound"
-
-type CategoryKey = "Movies" | "TV Shows" | "Countries" | "Capital Cities" | "Animals" | "Sports"
-
-export const slugToCategoryKey: Record<string, CategoryKey> = {
-  "tv-shows": "TV Shows",
-  "capital-cities": "Capital Cities",
-  movies: "Movies",
-  animals: "Animals",
-  countries: "Countries",
-  sports: "Sports",
-}
+import { slugToCategoryKey } from "../../types/category"
+import { useRandomWord } from "../../hooks/useRandomWord"
 
 export default function Game() {
   const { category } = useParams()
+  const categoryKey = category && slugToCategoryKey[category]
+  if (!categoryKey) return <NotFound />
+
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
   const [correctGuesses, setCorrectGuesses] = useState<string[]>([])
   const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([])
-  const [randomWord, setRandomWord] = useState<string>("")
+  const [randomWord, setRandomWord] = useRandomWord(categoryKey)
   const [showModal, setShowModal] = useState(false)
 
-  const categoryKey = category && slugToCategoryKey[category]
   const isWordGuessed = [...new Set(randomWord.replace(/[^a-z]/gi, ""))].every((letter) => correctGuesses.includes(letter))
 
-  if (!categoryKey) return <NotFound />
+  useEffect(() => {
+    if (showModal) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+
+    // Cleanup when component unmounts or modal closes
+    return () => {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [showModal])
 
   useEffect(() => {
     if (!randomWord) return
@@ -38,14 +42,6 @@ export default function Game() {
       setShowModal(true)
     }
   }, [isWordGuessed, incorrectGuesses])
-
-  useEffect(() => {
-    if (categoryKey) {
-      const items = data.categories[categoryKey]
-      const newRandomWord = items[Math.floor(Math.random() * items.length)].name.toLowerCase()
-      setRandomWord(newRandomWord)
-    }
-  }, [categoryKey])
 
   const handlePlayAgain = () => {
     if (categoryKey) {
