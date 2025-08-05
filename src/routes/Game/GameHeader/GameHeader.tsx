@@ -1,5 +1,6 @@
 import menu from "../../../assets/images/icon-menu.svg"
 import heart from "../../../assets/images/icon-heart.svg"
+import { MAX_INCORRECT_GUESSES } from "../../../constants/constants"
 
 interface GameHeaderProps {
   category: string | undefined
@@ -8,8 +9,7 @@ interface GameHeaderProps {
 }
 
 export default function GameHeader({ category, incorrectGuesses, setShowModal }: GameHeaderProps) {
-  const maxGuesses = 8
-  const percentage = ((maxGuesses - incorrectGuesses.length) / maxGuesses) * 100
+  const percentage = ((MAX_INCORRECT_GUESSES - incorrectGuesses.length) / MAX_INCORRECT_GUESSES) * 100
 
   return (
     <header>

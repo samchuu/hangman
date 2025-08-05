@@ -1,0 +1,1 @@
+export const MAX_INCORRECT_GUESSES = 8

@@ -9,6 +9,7 @@ import Overlay from "../../components/Overlay/Overlay"
 import NotFound from "../../components/NotFound/NotFound"
 import { slugToCategoryKey } from "../../types/category"
 import { useRandomWord } from "../../hooks/useRandomWord"
+import { MAX_INCORRECT_GUESSES } from "../../constants/constants"
 
 export default function Game() {
   const { category } = useParams()
@@ -37,11 +38,11 @@ export default function Game() {
   }, [showModal])
 
   useEffect(() => {
-    if (!randomWord) return
-    if (isWordGuessed || incorrectGuesses.length === 8) {
+    if (!randomWord || showModal) return
+    if (isWordGuessed || incorrectGuesses.length === MAX_INCORRECT_GUESSES) {
       setShowModal(true)
     }
-  }, [isWordGuessed, incorrectGuesses])
+  }, [isWordGuessed, incorrectGuesses, randomWord, showModal])
 
   const handlePlayAgain = () => {
     if (categoryKey) {
@@ -74,7 +75,7 @@ export default function Game() {
             showModal={showModal}
             setShowModal={setShowModal}
             handlePlayAgain={handlePlayAgain}
-            result={isWordGuessed ? "You Win" : incorrectGuesses.length === 8 ? "You Lose" : "Paused"}
+            result={isWordGuessed ? "You Win" : incorrectGuesses.length === MAX_INCORRECT_GUESSES ? "You Lose" : "Paused"}
           />
         </>
       )}
