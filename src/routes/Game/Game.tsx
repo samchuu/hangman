@@ -58,7 +58,7 @@ export default function Game() {
 
   return (
     <section className="mx-auto xl:max-w-screen-xl mt-10 md:mt-14 pb-20 relative">
-      <GameHeader category={categoryKey} incorrectGuesses={incorrectGuesses} setShowModal={setShowModal} />
+      <GameHeader category={categoryKey} incorrectGuesses={incorrectGuesses} showModal={showModal} setShowModal={setShowModal} />
       <GameTargetWord randomWord={randomWord} correctGuesses={correctGuesses} />
       <GameAlphabetGrid
         showModal={showModal}

@@ -20,8 +20,8 @@ export default function MainMenu() {
           <div className="absolute inset-0 rounded-full opacity-0 bg-white group-hover:opacity-20 transition-opacity duration-200 pointer-events-none" />
           <img src={play} alt="play" className="z-10" />
         </Link>
-        <Link to="/how-to-play">
-          <button className="mt-16 cursor-pointer uppercase w-64 h-16 bg-[#2463FF] hover:bg-[#5C8AFD] transition-colors duration-200 text-white text-[32px] rounded-[40px] shadow-[0px_-2px_0px_3px_#3D74FC,_0px_1px_0px_8px_#000] tracking-wider">
+        <Link to="/how-to-play" className="mt-16">
+          <button className="cursor-pointer uppercase w-64 h-16 bg-[#2463FF] hover:bg-[#5C8AFD] transition-colors duration-200 text-white text-[32px] rounded-[40px] shadow-[0px_-2px_0px_3px_#3D74FC,_0px_1px_0px_8px_#000] tracking-wider">
             How to play
           </button>
         </Link>

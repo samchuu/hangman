@@ -8,7 +8,7 @@ it("renders the correct category name", () => {
 
   render(
     <MemoryRouter>
-      <GameHeader category="Movies" incorrectGuesses={[]} setShowModal={setShowModal} />
+      <GameHeader category="Movies" incorrectGuesses={[]} showModal={false} setShowModal={setShowModal} />
     </MemoryRouter>
   )
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Movies")

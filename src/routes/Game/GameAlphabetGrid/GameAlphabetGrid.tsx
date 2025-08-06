@@ -58,7 +58,7 @@ export default function GameAlphabetGrid({
           <button
             key={alphabet}
             onClick={handleClick}
-            disabled={guessedLetters.includes(alphabet)}
+            disabled={guessedLetters.includes(alphabet) || showModal}
             className={`w-full px-2.5 py-3.5 max-w-28 text-2xl md:text-5xl cursor-pointer
             rounded-lg md:rounded-3xl flex justify-center items-center hover:text-white
             transition-colors duration-200 bg-white text-[#261676] hover:bg-[#2463FF]

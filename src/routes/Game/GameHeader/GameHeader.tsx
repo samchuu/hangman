@@ -5,10 +5,11 @@ import { MAX_INCORRECT_GUESSES } from "../../../constants/constants"
 interface GameHeaderProps {
   category: string | undefined
   incorrectGuesses: string[]
+  showModal: boolean
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function GameHeader({ category, incorrectGuesses, setShowModal }: GameHeaderProps) {
+export default function GameHeader({ category, incorrectGuesses, showModal, setShowModal }: GameHeaderProps) {
   const percentage = ((MAX_INCORRECT_GUESSES - incorrectGuesses.length) / MAX_INCORRECT_GUESSES) * 100
 
   return (
@@ -16,6 +17,8 @@ export default function GameHeader({ category, incorrectGuesses, setShowModal }:
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4 md:gap-8 xl:gap-14">
           <button
+            aria-label="Open menu"
+            disabled={showModal}
             onClick={() => setShowModal(true)}
             className="cursor-pointer flex justify-center items-center rounded-full bg-[linear-gradient(180deg,_#FE71FE_0%,_#7199FF_100%)] w-[40px] h-[40px] md:w-[64px] md:h-[64px] xl:w-[94px] xl:h-[94px]"
             style={{ boxShadow: "inset 0 -6px 0 7px rgb(157, 45, 245, 0.25)" }}
