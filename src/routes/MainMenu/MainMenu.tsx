@@ -15,6 +15,7 @@ export default function MainMenu() {
         <Link
           style={{ boxShadow: "inset 0 -15px 0 1px #9D2DF5, 0 4px 0 5px #243041" }}
           className="relative group cursor-pointer mt-16 w-40 h-40 flex justify-center items-center rounded-full bg-[linear-gradient(180deg,_#FE71FE_0%,_#7199FF_100%)]"
+          aria-label="Start game"
           to={"/category"}
         >
           <div className="absolute inset-0 rounded-full opacity-0 bg-white group-hover:opacity-20 transition-opacity duration-200 pointer-events-none" />
