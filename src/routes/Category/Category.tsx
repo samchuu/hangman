@@ -13,6 +13,7 @@ export default function Category() {
         {categories.map((category) => (
           <Link
             key={category}
+            aria-label="Go back to home"
             className="flex-1 w-full min-w-[324px] py-6 md:py-16 bg-[#2463FF] rounded-[20px] text-white text-center tracking-wider text-2xl md:text-[40px] xl:text-5xl uppercase cursor-pointer hover:bg-[#5C8AFD] transition-colors"
             style={{ boxShadow: "inset 0 -2px 0 3px rgb(20, 14, 102), inset 0 1px 0 6px rgb(60, 116, 255)" }}
             to={`/game/${slugify(category)}`}
